@@ -1,16 +1,13 @@
-// js/script.js
 
-// ====================== Banco de Preguntas (40) ======================
-// Nota: Las imágenes usan placeholders con el nombre del anime. Puedes reemplazarlas por imágenes reales fácilmente.
-const preguntas = [
+const preguntasBase = [
   {
-    imagen: "https://placehold.co/1200x600?text=Haikyuu!!&bg=1a1a2e&fg=ffffff",
+    imagen: "https://th.bing.com/th/id/R.186790848e37df106eccfebaf5507715?rik=EeLmS%2besskm1sw&riu=http%3a%2f%2fanimeargentina.net%2fwp-content%2fuploads%2f2023%2f07%2frevision-del-anime-haikyuu-no-es-el-anime-deportivo-promedio-1024x680.jpg&ehk=DPy5aiikfjAlaTcZ9bpRXY7eIwwICJ%2bH5zfxlVnyzQc%3d&risl=&pid=ImgRaw&r=0",
     texto: "¿Cómo se llama el equipo protagonista en Haikyuu!!?",
     opciones: ["Nekoma", "Fukurodani", "Karasuno", "Aoba Johsai"],
     correcta: 2,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=One%20Piece&bg=1a1a2e&fg=ffffff",
+    imagen: "https://sm.ign.com/t/ign_es/screenshot/default/1134207_hnfc.1200.jpg",
     texto: "En One Piece, ¿cuál es el sueño de Monkey D. Luffy?",
     opciones: [
       "Ser el mejor espadachín",
@@ -21,19 +18,19 @@ const preguntas = [
     correcta: 1,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Dragon%20Ball%20Z&bg=1a1a2e&fg=ffffff",
+    imagen: "https://th.bing.com/th/id/R.179d69ff3ec57af0b5a08152d5663031?rik=cdk75DLeN6YIYA&pid=ImgRaw&r=0",
     texto: "¿Quién fue el primer villano principal de Dragon Ball Z?",
     opciones: ["Freezer", "Cell", "Raditz", "Vegeta"],
     correcta: 2,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Attack%20on%20Titan&bg=1a1a2e&fg=ffffff",
+    imagen: "https://tupersonajefavorito.com/wp-content/uploads/2018/07/Shingeki-no-Kyojin-21.jpg",
     texto: "En Shingeki no Kyojin, ¿cómo se llama el primer muro exterior?",
     opciones: ["María", "Rose", "Sina", "Odín"],
     correcta: 0,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Demon%20Slayer&bg=1a1a2e&fg=ffffff",
+    imagen: "https://th.bing.com/th/id/R.925e4d9c5a3ce740e52397733dd24b9b?rik=ToK8Tyu1NaFFag&riu=http%3a%2f%2fmisiontokyo.com%2fwp-content%2fuploads%2f2022%2f12%2fGuya-scaled.jpg&ehk=UD9jSRHZQJ4Z7kAkCsmGfuvHu9oUAxigugKeCWm5QC8%3d&risl=&pid=ImgRaw&r=0",
     texto: "¿Cuál es el nombre de la respiración que utiliza Tanjiro?",
     opciones: [
       "Respiración del Fuego",
@@ -44,25 +41,25 @@ const preguntas = [
     correcta: 2,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=My%20Hero%20Academia&bg=1a1a2e&fg=ffffff",
+    imagen: "https://th.bing.com/th/id/R.124a76da3f1a145745510a911dae45bb?rik=6OU8s2tdw7dHdg&riu=http%3a%2f%2fmisiontokyo.com%2fwp-content%2fuploads%2f2020%2f03%2fMy-Hero-1.png&ehk=3P6MvhrPY8HsiUho7Cp3JLZa7xhqfuY79zccaLqYLhk%3d&risl=1&pid=ImgRaw&r=0",
     texto: "En My Hero Academia, ¿cómo se llama el poder de Izuku Midoriya?",
     opciones: ["All For One", "One For All", "Full Cowling", "Blackwhip"],
     correcta: 1,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Jujutsu%20Kaisen&bg=1a1a2e&fg=ffffff",
+    imagen: "https://tse1.mm.bing.net/th/id/OIP.NqxPsmmGseg1yDKnQX0GKQHaEY?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3",
     texto: "En Jujutsu Kaisen, ¿qué espíritu maldito habita en Itadori?",
     opciones: ["Mahito", "Sukuna", "Hanami", "Jogo"],
     correcta: 1,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Bleach&bg=1a1a2e&fg=ffffff",
+    imagen: "https://es.web.img2.acsta.net/pictures/16/02/03/17/47/271248.jpg",
     texto: "¿Cómo se llama la zanpakutō de Ichigo Kurosaki?",
     opciones: ["Senbonzakura", "Zangetsu", "Kyōka Suigetsu", "Sode no Shirayuki"],
     correcta: 1,
   },
   {
-    imagen: "https://placehold.co/1200x600?text=Fullmetal%20Alchemist&bg=1a1a2e&fg=ffffff",
+    imagen: "https://th.bing.com/th/id/R.c5cc315c04ca3d2d375fa1c394c9da5a?rik=MJx4utuGvWEs6g&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f18100000%2fFull-Metal-Alchemist-anime-18180971-1680-1050.jpg&ehk=UjgIUDnFkXTgIsYTBxsuJ7%2f89niNIMfng7Gpf4wuLuI%3d&risl=&pid=ImgRaw&r=0",
     texto: "¿Cómo se llama el hermano menor de Edward Elric?",
     opciones: ["Roy", "Alphonse", "Winry", "Hohenheim"],
     correcta: 1,
@@ -255,6 +252,10 @@ const preguntas = [
   }
 ];
 
+// Subconjunto activo y selección del usuario
+let preguntas = [];
+let selectedCount = 40;
+
 // ====================== Estado del Juego ======================
 let indiceActual = 0;
 let puntaje = 0;
@@ -271,14 +272,23 @@ let txtTotalPreguntas = document.getElementById("total-questions");
 let txtPuntaje = document.getElementById("score");
 let barraProgreso = document.getElementById("progress-bar");
 const gameContainer = document.getElementById("game-container");
+const startScreen = document.getElementById("start-screen");
 
 const IMAGE_FALLBACK = "https://placehold.co/1200x600?text=Imagen%20no%20disponible&bg=1a1a2e&fg=ffffff";
 const optionBaseClasses = "p-4 bg-white/10 border-2 border-transparent rounded-xl cursor-pointer transition hover:bg-white/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50";
 
 // ====================== Inicialización ======================
 function iniciarQuiz() {
-  // Aleatorizar el orden de preguntas
+  // Construye subconjunto si está vacío según la cantidad elegida
+  if (preguntas.length === 0) {
+    preguntas = getRandomSubset(preguntasBase, selectedCount);
+  }
+  // Aleatoriza el orden del subconjunto
   mezclarArray(preguntas);
+
+  // Oculta la pantalla inicial y muestra el juego
+  if (startScreen) startScreen.classList.add("hidden");
+  gameContainer.classList.remove("hidden");
 
   txtTotalPreguntas.textContent = preguntas.length;
   indiceActual = 0;
@@ -294,6 +304,14 @@ function mezclarArray(arr) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
+}
+
+// Devuelve un subconjunto aleatorio sin repetición
+function getRandomSubset(arr, count) {
+  const copy = [...arr];
+  mezclarArray(copy);
+  const c = Math.min(count, copy.length);
+  return copy.slice(0, c);
 }
 
 // ====================== Render de Pregunta ======================
@@ -379,13 +397,13 @@ function actualizarProgreso() {
 }
 
 function mostrarResultado() {
-  // Llenar la barra al 100%
+  // Se llena al 100% cuando se muestra el resultado
   barraProgreso.style.width = "100%";
 
   const total = preguntas.length;
   const porcentaje = Math.round((puntaje / total) * 100);
 
-  // Crear contenedor de resultados
+  // Crea un contenedor de resultados
   const result = document.createElement("div");
   result.className = "text-center p-6 bg-white/10 rounded-xl border border-white/10";
 
@@ -417,7 +435,7 @@ function mostrarResultado() {
   result.appendChild(mensaje);
   result.appendChild(btnReiniciar);
 
-  // Reemplazar el contenido del juego por el resultado
+  // Reemplaza el contenido del juego por el resultado
   gameContainer.innerHTML = "";
   gameContainer.appendChild(result);
   if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
@@ -429,7 +447,7 @@ function reiniciar() {
     <div class="flex justify-between mb-4 p-4 bg-white/10 rounded-lg text-lg">
       <div class="flex items-center gap-2">
         <i data-lucide="help-circle" class="w-5 h-5"></i>
-        <span>Pregunta <span id="current-question">1</span> de <span id="total-questions">${preguntas.length}</span></span>
+        <span>Pregunta <span id="current-question">1</span> de <span id="total-questions">${selectedCount}</span></span>
       </div>
       <div class="flex items-center gap-2">
         <i data-lucide="trophy" class="w-5 h-5"></i>
@@ -442,7 +460,7 @@ function reiniciar() {
     </div>
 
     <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
-      <img id="anime-image" class="w-full max-h-52 object-cover rounded-lg my-4 border border-white/20" src="" alt="Anime" loading="lazy"/>
+      <img id="anime-image" class="w-full h-auto max-h-[60vh] object-contain rounded-lg my-4 border border-white/20 bg-black" src="" alt="Anime" loading="lazy" decoding="async"/>
       <div id="question" class="text-xl mb-4 leading-relaxed"></div>
       <div id="options" class="grid gap-4"></div>
     </div>
@@ -455,13 +473,20 @@ function reiniciar() {
     </div>
   `;
 
-  // Reasignar referencias del DOM luego de reinsertar el HTML
+  // Se reasigna referencias del DOM luego de reinsertar el HTML
   reassignRefs();
-
-  iniciarQuiz();
+  // Reinicia estado de juego y muestra pantalla inicial para elegir cantidad
+  indiceActual = 0;
+  puntaje = 0;
+  seleccionHecha = false;
+  preguntas = [];
+  barraProgreso.style.width = "0%";
+  // Mostrar selección inicial y ocultar juego
+  if (startScreen) startScreen.classList.remove("hidden");
+  gameContainer.classList.add("hidden");
 }
 
-// Reasignar referencias post-reinicio
+// Se reasigna referencias post-reinicio
 function reassignRefs() {
   imgAnime = document.getElementById("anime-image");
   contPregunta = document.getElementById("question");
@@ -476,8 +501,25 @@ function reassignRefs() {
   if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
 }
 
-// ====================== Listeners ======================
 btnSiguiente.addEventListener("click", siguiente);
 
-// Iniciar
-iniciarQuiz();
+// Configura la pantalla inicial: listeners y visibilidad
+function setupStartScreen() {
+  // Oculta el contenedor del juego hasta que el usuario elija
+  gameContainer.classList.add("hidden");
+  if (!startScreen) return;
+  startScreen.classList.remove("hidden");
+  const botones = startScreen.querySelectorAll('button[data-count]');
+  botones.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = parseInt(btn.getAttribute('data-count'), 10);
+      selectedCount = isNaN(val) ? 40 : val;
+      preguntas = getRandomSubset(preguntasBase, selectedCount);
+      iniciarQuiz();
+    }, { once: true });
+  });
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+}
+
+// Iniciar flujo mostrando pantalla de selección
+setupStartScreen();

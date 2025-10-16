@@ -23,6 +23,41 @@
         <p class="text-slate-200">Demuestra tu conocimiento sobre el mundo del anime</p>
       </div>
 
+      <!-- Pantalla inicial: selección de cantidad -->
+      <div id="start-screen" class="space-y-4 mb-6">
+        <!-- Cita destacada -->
+        <div class="relative overflow-hidden rounded-xl border border-rose-400/30 bg-white/5 p-5 shadow-md">
+          <div class="absolute inset-0 bg-gradient-to-br from-rose-500/15 via-indigo-500/15 to-amber-500/15 opacity-80 pointer-events-none"></div>
+          <div class="relative flex items-start gap-3">
+            <i data-lucide="quote" class="w-6 h-6 text-rose-400 shrink-0"></i>
+            <blockquote class="italic text-slate-100 text-sm sm:text-base leading-relaxed">
+              «Si no te gusta tu destino, no lo aceptes. En lugar de eso, ten el valor de convertirlo en lo que deseas». – Naruto Uzumaki
+            </blockquote>
+          </div>
+        </div>
+        <p class="text-center text-slate-200">Elige cuántas preguntas quieres responder</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <button data-count="5" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 5
+          </button>
+          <button data-count="10" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 10
+          </button>
+          <button data-count="20" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 20
+          </button>
+          <button data-count="34" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 34
+          </button>
+          <button data-count="40" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2 col-span-2 sm:col-span-1">
+            <i data-lucide="list" class="w-5 h-5"></i> 40
+          </button>
+        </div>
+        <div class="flex justify-center">
+          <span class="text-xs text-slate-400">Puedes cambiar la cantidad al reiniciar.</span>
+        </div>
+      </div>
+
       <div id="game-container">
         <div class="flex justify-between mb-4 p-4 bg-white/10 rounded-lg text-lg">
           <div class="flex items-center gap-2">
@@ -42,10 +77,11 @@
         <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
           <img
             id="anime-image"
-            class="w-full max-h-52 object-cover rounded-lg my-4 border border-white/20"
+            class="w-full h-auto max-h-[60vh] object-contain rounded-lg my-4 border border-white/20 bg-black"
             src=""
             alt="Anime"
             loading="lazy"
+            decoding="async"
           />
           <div id="question" class="text-xl mb-4 leading-relaxed"></div>
           <div id="options" class="grid gap-4"></div>
