@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz de Animes</title>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {}
+        }
+      }
+    </script>
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-indigo-950 to-slate-900 text-white flex items-center justify-center p-4">
+    <div class="w-full max-w-3xl bg-white/10 backdrop-blur rounded-2xl p-6 shadow-lg border border-white/20">
+      <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-rose-500 to-indigo-500 bg-clip-text text-transparent">Quiz de Animes</h1>
+        <p class="text-slate-200">Demuestra tu conocimiento sobre el mundo del anime</p>
+      </div>
+
+      <div id="game-container">
+        <div class="flex justify-between mb-4 p-4 bg-white/10 rounded-lg text-lg">
+          <div class="flex items-center gap-2">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+            <span>Pregunta <span id="current-question">1</span> de <span id="total-questions">40</span></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
+            <span>Puntaje: <span id="score">0</span></span>
+          </div>
+        </div>
+
+        <div class="w-full h-2 bg-white/20 rounded overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-rose-500 to-indigo-500 w-0 transition-all" id="progress-bar"></div>
+        </div>
+
+        <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
+          <img
+            id="anime-image"
+            class="w-full max-h-52 object-cover rounded-lg my-4 border border-white/20"
+            src=""
+            alt="Anime"
+            loading="lazy"
+          />
+          <div id="question" class="text-xl mb-4 leading-relaxed"></div>
+          <div id="options" class="grid gap-4"></div>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-6">
+          <button id="next-btn" class="px-6 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-rose-500 to-indigo-500 shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+            Siguiente
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js" defer></script>
+    <script>
+      if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); }
+    </script>
+  </body>
+</html>
