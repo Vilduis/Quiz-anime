@@ -273,6 +273,7 @@ let txtPuntaje = document.getElementById("score");
 let barraProgreso = document.getElementById("progress-bar");
 const gameContainer = document.getElementById("game-container");
 const startScreen = document.getElementById("start-screen");
+const decorativeOverlay = document.getElementById("decorative-overlay");
 
 const IMAGE_FALLBACK = "https://placehold.co/1200x600?text=Imagen%20no%20disponible&bg=1a1a2e&fg=ffffff";
 const optionBaseClasses = "p-4 bg-white/10 border-2 border-transparent rounded-xl cursor-pointer transition hover:bg-white/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50";
@@ -286,8 +287,9 @@ function iniciarQuiz() {
   // Aleatoriza el orden del subconjunto
   mezclarArray(preguntas);
 
-  // Oculta la pantalla inicial y muestra el juego
+  // Oculta la pantalla inicial y el overlay decorativo; muestra el juego
   if (startScreen) startScreen.classList.add("hidden");
+  if (decorativeOverlay) decorativeOverlay.classList.add("hidden");
   gameContainer.classList.remove("hidden");
 
   txtTotalPreguntas.textContent = preguntas.length;
@@ -483,6 +485,10 @@ function reiniciar() {
   barraProgreso.style.width = "0%";
   // Mostrar selección inicial y ocultar juego
   if (startScreen) startScreen.classList.remove("hidden");
+  if (decorativeOverlay) {
+    decorativeOverlay.classList.remove("hidden");
+    renderOverlayBlobs();
+  }
   gameContainer.classList.add("hidden");
 }
 
@@ -509,6 +515,10 @@ function setupStartScreen() {
   gameContainer.classList.add("hidden");
   if (!startScreen) return;
   startScreen.classList.remove("hidden");
+  if (decorativeOverlay) {
+    decorativeOverlay.classList.remove("hidden");
+    renderOverlayBlobs();
+  }
   const botones = startScreen.querySelectorAll('button[data-count]');
   botones.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -519,6 +529,35 @@ function setupStartScreen() {
     }, { once: true });
   });
   if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+}
+
+// Genera blobs decorativos con posiciones y colores aleatorios
+function renderOverlayBlobs() {
+  if (!decorativeOverlay) return;
+  decorativeOverlay.innerHTML = "";
+  const count = Math.floor(Math.random() * 3) + 3; // 3-5 blobs
+  const colors = [
+    "rgba(99,102,241,0.12)",   // indigo-500
+    "rgba(168,85,247,0.12)",   // purple-500
+    "rgba(236,72,153,0.12)",   // pink-500
+    "rgba(244,63,94,0.10)",    // rose-500
+    "rgba(59,130,246,0.10)",   // blue-500
+    "rgba(34,197,94,0.10)"     // green-500
+  ];
+  for (let i = 0; i < count; i++) {
+    const blob = document.createElement("div");
+    blob.className = "absolute rounded-full filter blur-3xl";
+    const size = Math.floor(Math.random() * 10) + 14; // rem ~14-24
+    const vw = Math.floor(Math.random() * 80) + 10; // 10-90 vw
+    const vh = Math.floor(Math.random() * 80) + 10; // 10-90 vh
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    blob.style.width = size + "rem";
+    blob.style.height = size + "rem";
+    blob.style.background = color;
+    blob.style.top = vh + "vh";
+    blob.style.left = vw + "vw";
+    decorativeOverlay.appendChild(blob);
+  }
 }
 
 // Iniciar flujo mostrando pantalla de selección
