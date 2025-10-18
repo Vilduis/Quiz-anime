@@ -78,14 +78,16 @@
         </div>
 
         <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
-          <img
-            id="anime-image"
-            class="w-full h-auto max-h-[60vh] object-contain rounded-lg my-4 border border-white/20 bg-black"
-            src=""
-            alt="Anime"
-            loading="lazy"
-            decoding="async"
-          />
+          <div id="image-wrapper" class="w-full h-72 sm:h-80 md:h-96 bg-black rounded-lg my-4 border border-white/20 flex items-center justify-center overflow-hidden">
+            <img
+              id="anime-image"
+              class="h-full w-full object-contain"
+              src=""
+              alt="Anime"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div id="question" class="text-xl mb-4 leading-relaxed"></div>
           <div id="options" class="grid gap-4"></div>
         </div>
