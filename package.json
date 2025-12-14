@@ -4,8 +4,9 @@
   "description": "Quiz web con 40 preguntas aleatorias, cada una con imagen del anime. Interfaz con Tailwind CSS (CDN) e iconos de Lucide; lógica en JavaScript.",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "build": "echo \"Using pre-compiled CSS from src/output.css\"",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
