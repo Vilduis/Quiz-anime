@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <title>Quiz de Animes</title>
+    <!-- Tailwind CSS compilado -->
+    <link href="./src/output.css" rel="stylesheet">
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-indigo-950 to-slate-900 text-white flex items-center justify-center p-4">
+    <!-- Overlay decorativo fuera del card -->
+    <div id="decorative-overlay" class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true"></div>
+    <div class="w-full max-w-3xl bg-white/10 backdrop-blur rounded-2xl p-6 shadow-lg border border-white/20">
+      <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-rose-500 to-indigo-500 bg-clip-text text-transparent">Quiz de Animes</h1>
+        <p class="text-slate-200">Demuestra tu conocimiento sobre el mundo del anime</p>
+      </div>
+
+      <!-- Pantalla inicial: selección de cantidad -->
+      <div id="start-screen" class="space-y-4 mb-6">
+        <!-- Cita destacada -->
+        <div class="relative overflow-hidden rounded-xl border border-rose-400/30 bg-white/5 p-5 shadow-md">
+          <div class="absolute inset-0 bg-gradient-to-br from-rose-500/15 via-indigo-500/15 to-amber-500/15 opacity-80 pointer-events-none"></div>
+          <div class="relative flex items-start gap-3">
+            <i data-lucide="quote" class="w-6 h-6 text-rose-400 shrink-0"></i>
+            <blockquote class="italic text-slate-100 text-sm sm:text-base leading-relaxed">
+              «Si no te gusta tu destino, no lo aceptes. En lugar de eso, ten el valor de convertirlo en lo que deseas». – Naruto Uzumaki
+            </blockquote>
+          </div>
+        </div>
+        <p class="text-center text-slate-200">Elige cuántas preguntas quieres responder</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <button data-count="5" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 5
+          </button>
+          <button data-count="10" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 10
+          </button>
+          <button data-count="20" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 20
+          </button>
+          <button data-count="34" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2">
+            <i data-lucide="list" class="w-5 h-5"></i> 34
+          </button>
+          <button data-count="40" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition flex items-center justify-center gap-2 col-span-2 sm:col-span-1">
+            <i data-lucide="list" class="w-5 h-5"></i> 40
+          </button>
+        </div>
+        <div class="flex justify-center">
+          <span class="text-xs text-slate-400">Puedes cambiar la cantidad al reiniciar.</span>
+        </div>
+      </div>
+
+      <div id="game-container">
+        <div class="flex justify-between mb-4 p-4 bg-white/10 rounded-lg text-lg">
+          <div class="flex items-center gap-2">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+            <span>Pregunta <span id="current-question">1</span> de <span id="total-questions">40</span></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
+            <span>Puntaje: <span id="score">0</span></span>
+          </div>
+        </div>
+
+        <div class="w-full h-2 bg-white/20 rounded overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-rose-500 to-indigo-500 w-0 transition-all" id="progress-bar"></div>
+        </div>
+
+        <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
+          <div id="image-wrapper" class="w-full h-72 sm:h-80 md:h-96 bg-black rounded-lg my-4 border border-white/20 flex items-center justify-center overflow-hidden">
+            <img
+              id="anime-image"
+              class="h-full w-full object-contain"
+              src=""
+              alt="Anime"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div id="question" class="text-xl mb-4 leading-relaxed"></div>
+          <div id="options" class="grid gap-4"></div>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-6">
+          <button id="next-btn" class="px-6 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-rose-500 to-indigo-500 shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+            Siguiente
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js" defer></script>
+    <script>
+      if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); }
+    </script>
+  </body>
+</html>

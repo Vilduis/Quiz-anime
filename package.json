@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "echo \"Using pre-compiled CSS from src/output.css\"",
+    "build": "node scripts/build.js",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
