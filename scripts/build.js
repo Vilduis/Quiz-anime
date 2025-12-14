@@ -5,8 +5,8 @@ const { execSync } = require("child_process");
 function ensureCss() {
   const input = path.join(process.cwd(), "src", "input.css");
   const output = path.join(process.cwd(), "src", "output.css");
-  if (fs.existsSync(input)) {
-    execSync(`npx tailwindcss -i "${input}" -o "${output}" --minify`, { stdio: "inherit" });
+  if (!fs.existsSync(output) && fs.existsSync(input)) {
+    fs.writeFileSync(output, "");
   }
 }
 
